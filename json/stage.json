@@ -1,0 +1,54 @@
+{
+    "stage": [
+        {
+            "MilestoneIndex": 1,
+            "TotalQuestPoint": 100,
+            "MileStoneChipAward": "20"
+        },
+        {
+            "MilestoneIndex": 2,
+            "TotalQuestPoint": 200,
+            "MileStoneChipAward": "40"
+        },
+        {
+            "MilestoneIndex": 3,
+            "TotalQuestPoint": 300,
+            "MileStoneChipAward": "60"
+        },
+        {
+            "MilestoneIndex": 4,
+            "TotalQuestPoint": 400,
+            "MileStoneChipAward": "80"
+        },
+        {
+            "MilestoneIndex": 5,
+            "TotalQuestPoint": 500,
+            "MileStoneChipAward": "100"
+        },
+        {
+            "MilestoneIndex": 6,
+            "TotalQuestPoint": 600,
+            "MileStoneChipAward": "120"
+        },
+        {
+            "MilestoneIndex": 7,
+            "TotalQuestPoint": 700,
+            "MileStoneChipAward": "140"
+        },
+        {
+            "MilestoneIndex": 8,
+            "TotalQuestPoint": 800,
+            "MileStoneChipAward": "160"
+        },
+        {
+            "MilestoneIndex": 9,
+            "TotalQuestPoint": 900,
+            "MileStoneChipAward": "180"
+        },
+        {
+            "MilestoneIndex": 10,
+            "TotalQuestPoint": 1000,
+            "MileStoneChipAward": "200"
+        }
+    ]
+}
