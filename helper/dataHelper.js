@@ -18,7 +18,7 @@ exports.playQuest = (pId, pLevel, chipAmount) =>
     // - if not create an new player
     // - if player exist, update player's record
     if (!checkRecord)
-        createNewPlayer(pId, pLevel, chipAmount);
+        return createNewPlayer(pId, pLevel, chipAmount);
     else
         return updatePlayerRecord(pId, pLevel, chipAmount);
 }
@@ -30,7 +30,6 @@ createNewPlayer = (pId, pLevel, chipAmount) =>{
 
     // Calcluate current bet amount quest points
     let totalQuestPoint = (chipAmount * rateFromBet) + (pLevel * levelBonusRate);
-    console.log("Total Earn Point (New Player): " + totalQuestPoint);
 
     // Check completed mile stone
     let completedMileStone = mileStoneComplete(totalQuestPoint);
@@ -66,6 +65,14 @@ createNewPlayer = (pId, pLevel, chipAmount) =>{
     fs.writeFile('./json/transaction.json', JSON.stringify(transModel), 'utf8', (err) =>{
         if (err) throw err;
     });
+
+    let msgResponse = {
+        "QuestPointsEarned" : totalQuestPoint,
+        "TotalQuestPercentCompleted" : totalPercentComplete,
+        "MilestonesCompleted": completedMileStone
+    }
+
+    return msgResponse;
 }
 
 // Update existing player's record
@@ -113,7 +120,6 @@ updatePlayerRecord = (pId, pLevel, chipAmount) =>{
         if (err) throw err;
     });
 
-    // Need to select only Milestones column and ChipAward
     let msgResponse = {
         "QuestPointsEarned" : totalQuestPoint,
         "TotalQuestPercentCompleted" : totalPercentComplete,
@@ -124,6 +130,10 @@ updatePlayerRecord = (pId, pLevel, chipAmount) =>{
 }
 
 mileStoneComplete = (questPoint) =>{
-    return completeMileStone = dataModel.getStageJson().filter(data => data.TotalQuestPoint <= questPoint);
+    let mileStone = dataModel.getStageJson()
+                    .filter(data => data.TotalQuestPoint <= questPoint)
+                    .map(item => ({"MilestoneIndex": item.MilestoneIndex, "ChipsAwarded": item.MileStoneChipAward}));
+    
+    return mileStone; 
 }
 

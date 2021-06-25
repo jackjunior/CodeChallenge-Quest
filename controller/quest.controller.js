@@ -6,7 +6,6 @@ exports.player_list = (req, res) =>{
     if (!req.params.PlayerId)
         return res.status(400).send({message: "PlayerId is required for retriving player's state!"});
 
-    
     if (!dataModel.getPlayerList())
         return res.status(404).send({message: "No player's record found!"});
 
