@@ -34,3 +34,6 @@ There are 2 ways to test the API service:
 ```
 npm test
 ```
+The sample test report as the following:
+![image](https://user-images.githubusercontent.com/891759/123460508-4f212c80-d61a-11eb-99c9-acccbc613d6c.png)
+
