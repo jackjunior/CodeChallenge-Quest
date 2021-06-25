@@ -1,9 +1,12 @@
 # CodeChallenge
 
-#Welcome to Code Challenge repository!
+# Welcome to Code Challenge repository!
 
-##Project Background
+## Project Background
+
 This project is providing 2 APIs for a player to earn quest points to complete different milestones. Once the level completes, each milestone will provide an amount of chips awarded to return to the player.
+
+## Service Start
 
 How to make the service up and running:
 
@@ -17,4 +20,17 @@ npm install
 
 ```
 nodemon app.js
+```
+
+## Service Test
+
+There are 2 ways to test the API service:
+
+1. Trigger request through API testing clients
+   - VS Code extension `Thunder Client`
+   - Postman
+2. Run through the unit testing program to check the testing coverage
+
+```
+npm test
 ```
