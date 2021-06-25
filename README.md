@@ -40,8 +40,8 @@ The sample test report as the following:
 ## Service Configuration
 This project provide 2 config files which control the quest point calculation factors and total milesstones of a quest:
 1. config
-   -config.json - include `RateFromBet` and `LevelBonusRate` parameters
+   - config.json - include `RateFromBet` and `LevelBonusRate` parameters
    ![image](https://user-images.githubusercontent.com/891759/123461913-416ca680-d61c-11eb-9d35-ffbe93a86cbf.png)
 2. json
-   -stage.json - total milestones of the quest include `MilestoneIndex`, `TotalQuestPoint` and `MileStoneChipAward`
+   - stage.json - total milestones of the quest include `MilestoneIndex`, `TotalQuestPoint` and `MileStoneChipAward` parameters
    ![image](https://user-images.githubusercontent.com/891759/123462266-aaecb500-d61c-11eb-9c62-41e13dc8e135.png)
