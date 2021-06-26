@@ -6,11 +6,11 @@ exports.player_list = (req, res) =>{
     if (!req.params.PlayerId)
         return res.status(400).send({message: "PlayerId is required for retriving player's state!"});
 
-    if (!dataModel.getPlayerList())
-        return res.status(404).send({message: "No player's record found!"});
-
     // Find corresponding player to get player's state
     let playerRecord = dataModel.getPlayerList().find(player => player.PlayerId === req.params.PlayerId);
+    
+    if (!dataModel.getPlayerList() || !playerRecord)
+    return res.status(404).send({message: "No player's record found!"});
     
     return res.status(200).send({
         "TotalQuestPercentCompleted" : playerRecord.TotalQuestPercentCompleted,
