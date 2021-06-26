@@ -106,3 +106,55 @@ The above response shows player completed 3 milestones and received total 120 ch
   "LastMilestoneIndexCompleted": 3
 }
 ```
+6. Base on `stage.json` defined that there are total 10 milestones and maximum 1000 quest points require,
+   Once the player reach to 1000 quest points, the response will be the following:
+```
+{
+  "QuestPointsEarned": 304,
+  "TotalQuestPercentCompleted": 100,
+  "MilestonesCompleted": [
+    {
+      "MilestoneIndex": 1,
+      "ChipsAwarded": 20
+    },
+    {
+      "MilestoneIndex": 2,
+      "ChipsAwarded": 40
+    },
+    {
+      "MilestoneIndex": 3,
+      "ChipsAwarded": 60
+    },
+    {
+      "MilestoneIndex": 4,
+      "ChipsAwarded": 80
+    },
+    {
+      "MilestoneIndex": 5,
+      "ChipsAwarded": 100
+    },
+    {
+      "MilestoneIndex": 6,
+      "ChipsAwarded": 120
+    },
+    {
+      "MilestoneIndex": 7,
+      "ChipsAwarded": 140
+    },
+    {
+      "MilestoneIndex": 8,
+      "ChipsAwarded": 160
+    },
+    {
+      "MilestoneIndex": 9,
+      "ChipsAwarded": 180
+    },
+    {
+      "MilestoneIndex": 10,
+      "ChipsAwarded": 200
+    }
+  ]
+}
+```
+
+# Hope you enjoy the quest and let's play together!
