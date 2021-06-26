@@ -98,7 +98,7 @@ This project provide 2 config files which control the quest point calculation fa
   ]
 }
 ```
-The above response shows player completed 3 milestones and received total 120 chips awarded.
+  - The above response shows player completed 3 milestones and received total 120 chips awarded.
 5. We can also trigger the GET request to `http://localhost:3000/api/state/1006` to retrieve player's current state
 ```
 {
