@@ -57,7 +57,7 @@ createNewPlayer = (pId, pLevel, chipAmount) =>{
     let newTrans = {
         "PlayerId": pId,
         "BetAmount": chipAmount,
-        "TimeStamp": new Date().getTime()
+        "TimeStamp": getDateTimeUTC()
     }
     transModel.transRecord.push(newTrans);
 
@@ -110,9 +110,8 @@ updatePlayerRecord = (pId, pLevel, chipAmount) =>{
     let newTrans = {
         "PlayerId": pId,
         "BetAmount": chipAmount,
-        "TimeStamp": new Date().getTime()
+        "TimeStamp": getDateTimeUTC()
     }
-
     transModel.transRecord.push(newTrans);
 
     // Write player's record to /json/transaction.json
@@ -135,5 +134,16 @@ mileStoneComplete = (questPoint) =>{
                     .map(item => ({"MilestoneIndex": item.MilestoneIndex, "ChipsAwarded": item.MileStoneChipAward}));
     
     return mileStone; 
+}
+
+getDateTimeUTC = () => {
+    let currentDate = new Date();
+    let timeSatmp = currentDate.getUTCFullYear() +"-"+
+                    currentDate.getUTCMonth() +"-"+
+                    currentDate.getUTCDate() +" "+
+                    currentDate.getHours() +":"+
+                    currentDate.getUTCMinutes() +"."+
+                    currentDate.getSeconds()
+    return timeSatmp;
 }
 

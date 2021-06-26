@@ -1,1 +1,23 @@
-{"playerlist":[{"PlayerId":"1006","AccumulateEarnPoint":314,"TotalQuestPercentCompleted":30,"MilestonesComplete":[{"MilestoneIndex":1,"ChipsAwarded":20},{"MilestoneIndex":2,"ChipsAwarded":40},{"MilestoneIndex":3,"ChipsAwarded":60}]}]}
+{
+    "playerlist": [
+        {
+            "PlayerId": "1006",
+            "AccumulateEarnPoint": 384,
+            "TotalQuestPercentCompleted": 30,
+            "MilestonesComplete": [
+                {
+                    "MilestoneIndex": 1,
+                    "ChipsAwarded": 20
+                },
+                {
+                    "MilestoneIndex": 2,
+                    "ChipsAwarded": 40
+                },
+                {
+                    "MilestoneIndex": 3,
+                    "ChipsAwarded": 60
+                }
+            ]
+        }
+    ]
+}
