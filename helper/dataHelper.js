@@ -42,7 +42,7 @@ createNewPlayer = (pId, pLevel, chipAmount) =>{
     let newPlayerRecord ={
         "PlayerId": pId,
         "AccumulateEarnPoint": totalQuestPoint,
-        "TotalQuestPercentComplete": totalPercentComplete,
+        "TotalQuestPercentCompleted": totalPercentComplete,
         "MilestonesComplete": completedMileStone
     }
     playerList.push(newPlayerRecord);

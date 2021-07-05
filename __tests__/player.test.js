@@ -8,11 +8,25 @@ let inputData = {
     "PlayerLevel": 2,
     "ChipAmountBet": 100
 };
-let newPlayerData = {
-    "PlayerId": '2001',
-    "PlayerLevel": 2,
-    "ChipAmountBet": 100
+
+let playerLevelInStr = {
+    "PlayerId": '1006',
+    "PlayerLevel": "a",
+    "ChipAmountBet": "abc"
 };
+
+// Prepare player's data - create new user
+test("Prepare user data", async () => {
+    await supertest(app)
+        .post("/api/progress")
+        .send(inputData)
+        .expect(200)
+        .then((response) => {
+            expect(response.headers['content-type']).toEqual(expect.stringContaining('json'));
+            expect(typeof response.body.QuestPointsEarned).toBe('number');
+            expect(typeof response.body.TotalQuestPercentCompleted).toBe('number');
+        })
+});
 
 // GET player's record
 test("GET /api/state/:PlayerId", async () => {
@@ -52,15 +66,14 @@ test("POST /api/progress", async () => {
         })
 });
 
-// if player's record not exist, then create new player's record
+// if player's level or player's chip bet amount in string
 test("POST /api/progress", async () => {
     await supertest(app)
         .post("/api/progress")
-        .send(newPlayerData)
-        .expect(200)
+        .send(playerLevelInStr)
+        .expect(400)
         .then((response) => {
             expect(response.headers['content-type']).toEqual(expect.stringContaining('json'));
-            expect(typeof response.body.QuestPointsEarned).toBe('number');
-            expect(typeof response.body.TotalQuestPercentCompleted).toBe('number');
+            expect(typeof response.body.message).toBe('string');
         })
 });

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>17/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.73% </span>
+                <span class="strong">84.21% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/11</span>
+                <span class='fraction'>16/19</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">84.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/16</span>
+                <span class='fraction'>16/19</span>
             </div>
         
             
@@ -88,7 +88,13 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -96,12 +102,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,15 +116,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const dataModel = require('../models/dataModel');
 const dataHelper = require('../helper/dataHelper');
 &nbsp;
@@ -127,11 +139,11 @@ exports.player_list = (req, res) =&gt;{
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!req.params.PlayerId)
 <span class="cstat-no" title="statement not covered" >        return res.status(400).send({message: "PlayerId is required for retriving player's state!"});</span>
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!dataModel.getPlayerList())
-<span class="cstat-no" title="statement not covered" >        return res.status(404).send({message: "No player's record found!"});</span>
-&nbsp;
     // Find corresponding player to get player's state
     let playerRecord = dataModel.getPlayerList().find(player =&gt; player.PlayerId === req.params.PlayerId);
+    
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!dataModel.getPlayerList() || !playerRecord)
+<span class="cstat-no" title="statement not covered" >        return res.status(404).send({message: "No player's record found!"});</span>
     
     return res.status(200).send({
         "TotalQuestPercentCompleted" : playerRecord.TotalQuestPercentCompleted,
@@ -147,7 +159,13 @@ exports.player_update = (req, res) =&gt;{
     if (!req.body.PlayerId || !req.body.PlayerLevel || !req.body.ChipAmountBet)
         return res.status(400).send({message: "PlayerId, PlayerLevel and ChipAmountBet is required!"});
 &nbsp;
-    let msgResponse = dataHelper.playQuest(req.body.PlayerId, req.body.PlayerLevel, req.body.ChipAmountBet);
+    let msgResponse = "";
+    if (!(isNaN(req.body.PlayerLevel)) &amp;&amp; !(isNaN(req.body.ChipAmountBet)) &amp;&amp;
+        (req.body.PlayerLevel &gt;= 0) &amp;&amp; (req.body.ChipAmountBet &gt;= 0))
+        msgResponse = dataHelper.playQuest(req.body.PlayerId, req.body.PlayerLevel, req.body.ChipAmountBet);
+    else
+        return res.status(400).send({message: "PlayerLevel, ChipAmountBet must be number and greater or equal to 0!"});
+&nbsp;
 &nbsp;
     return res.status(200).send(msgResponse);
 };</pre></td></tr></table></pre>
@@ -157,7 +175,7 @@ exports.player_update = (req, res) =&gt;{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jun 25 2021 23:54:38 GMT+0800 (香港標準時間)
+                at Mon Jul 05 2021 12:23:57 GMT+0800 (香港標準時間)
             </div>
         </div>
         <script src="../../prettify.js"></script>

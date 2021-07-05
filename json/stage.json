@@ -49,6 +49,21 @@
             "MilestoneIndex": 10,
             "TotalQuestPoint": 1000,
             "MileStoneChipAward": 200
+        },
+        {
+            "MilestoneIndex": 11,
+            "TotalQuestPoint": 1100,
+            "MileStoneChipAward": 220
+        },
+        {
+            "MilestoneIndex": 12,
+            "TotalQuestPoint": 1200,
+            "MileStoneChipAward": 240
+        },
+        {
+            "MilestoneIndex": 13,
+            "TotalQuestPoint": 1300,
+            "MileStoneChipAward": 260
         }
     ]
 }
