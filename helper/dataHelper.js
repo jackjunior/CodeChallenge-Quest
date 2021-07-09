@@ -138,8 +138,9 @@ mileStoneComplete = (questPoint) =>{
 
 getDateTimeUTC = () => {
     let currentDate = new Date();
+    let currentMonth = currentDate.getUTCMonth() + 1;
     let timeSatmp = currentDate.getUTCFullYear() +"-"+
-                    currentDate.getUTCMonth() +"-"+
+                    currentMonth +"-"+
                     currentDate.getUTCDate() +" "+
                     currentDate.getHours() +":"+
                     currentDate.getUTCMinutes() +"."+

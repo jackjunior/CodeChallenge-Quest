@@ -9,6 +9,7 @@ let inputData = {
     "ChipAmountBet": 100
 };
 
+// Exception case - when Player Level, ChipAmountBet non-number
 let playerLevelInStr = {
     "PlayerId": '1006',
     "PlayerLevel": "a",
@@ -66,7 +67,7 @@ test("POST /api/progress", async () => {
         })
 });
 
-// if player's level or player's chip bet amount in string
+// Exception case - if player's level or player's chip bet amount in string
 test("POST /api/progress", async () => {
     await supertest(app)
         .post("/api/progress")
